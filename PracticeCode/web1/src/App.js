@@ -1,40 +1,13 @@
 import './App.css';
-import { useState } from 'react';
+import SearchBar  from './components/SearchBar';
+import BookData from "./Data.json";
 
 function App() {
-  const [data, setData] = useState([]);
-  const [newData, setNewData] = useState("");
-
-  const handleChange = (event) => {
-    setNewData(event.target.value);
-  };
-
-  const addTask = () =>{
-    const newList = [...data, newData];
-    
-    setData(newList);
-  };
-
-  // const deleteTask = (id) => {
-  //   setData(data.filter((task) => task.id !== id));
-  // }
-  
-  return (
+     return (
     <div className="App">
-    <div className='addTask'>
-      <input onChange={handleChange}/>
-      <button onClick={addTask}>Add Task</button>
+      <SearchBar placeholder="Enter a Book Name..." data={BookData} />
     </div>
-    <div className='list'>
-      {data.map((task) => {
-        return (
-         
-          <h1>{task}</h1>
-         
-        );
-      })}
-    </div>
-  </div>
+  
   );
 }
 
